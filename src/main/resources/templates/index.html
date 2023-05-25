@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Best of the year</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"  th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+<link rel="stylesheet"  th:href="@{/css/style.css}">
 </head>
 <body>
-	<h1 th:text="'Best of the year by '  + ${name} ">
+	<h1 th:text="'Best of the year by ' + ${ name }"></h1>
+	<img width="200px" th:src="@{/img/bool.png}">
+	
+	<ul>
+  <li 
+  th:each="movie : ${movies}" 
+  th:object="${movies}"
+  >
+  <a th:href="@{/movies/{id} (id=*{id)}">
+  [[*{id]] - [[*{title]]
+  
+  </a>
+  
+  
+  
+  </li>
+
+</ul>
+
+	
 </body>
 </html>
