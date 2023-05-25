@@ -1,9 +1,9 @@
 package org.java.best.pojo;
 
-public class Movie {
+public class Song {
 private int id;
 private String title;
-public Movie(int id,String title) {
+public Song(int id,String title) {
 	setId(id);
 	setTitle(title);
 }
