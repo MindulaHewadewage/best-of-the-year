@@ -16,15 +16,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MyController {
 
 	@GetMapping("/")
-	public String getHome(Model model) {
-		
-		List<Movie>movies =getMovies();
-		model.addAttribute("movies", movies);
+	public String getHome() {
 		
 		return "index";
 	}
 	
-	@GetMapping("/movies/{id}")
+	@GetMapping("/movies")
+	public String getMovies(Model model) {
+		List<Movie>movies =getMovies();
+		model.addAttribute("movies", movies);
+		
+		return "movies";
+	}
+	
+	@GetMapping("/songs")
+	public String getSongs(Model model) {
+		List<Song>songs =getSongs();
+		model.addAttribute("songs", songs);
+		
+		return "songs";
+	}
+	
+	@GetMapping("/movies/{id}  ")
 	public String getMovie(Model model,@PathVariable("id")int id) {
 		Movie movie =getMovieById(id);
 		if(movie!=null)
@@ -116,14 +129,14 @@ public class MyController {
 				new Movie(5, "mio titolo 5")
 		});
 	}
-//	private List<Song> getSongs() {
-//		
-//		return Arrays.asList(new Song[] {
-//				new Song(1, "song 1"),
-//				new Song(2, "song 2"),
-//				new Song(3, "song 3"),
-//				new Song(4, "song 4"),
-//				new Song(5, "song 5")
-//		});
-//	}
+	private List<Song> getSongs() {
+		
+		return Arrays.asList(new Song[] {
+				new Song(1, "song 1"),
+				new Song(2, "song 2"),
+				new Song(3, "song 3"),
+				new Song(4, "song 4"),
+				new Song(5, "song 5")
+		});
+	}
 }
